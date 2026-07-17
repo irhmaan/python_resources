@@ -1,0 +1,40 @@
+!1. Variables and Flow Control
+?Dynamic Typing: 
+*Variables do not need explicit types declared; their type is determined at runtime and can be reassigned freely.
+?Conditionals & Loops: 
+*Parentheses are generally not required for if, while, or for loops unless you have multi-line conditions. 
+?Math Operations: 
+?Division defaults to decimal division (/), so you must use double slashes (//) for integer division. 
+*Code blocks are defined strictly by line indentation rather than curly braces.
+*Python integers also have infinite precision and will never overflow.
+
+!2. Core Data Structures
+?Arrays (Lists): 
+*Implemented as dynamic arrays by default, allowing you to use them as standard stacks via .append() and .pop() 
+*in constant $O(1)$ time. 
+*The video also covers advanced indexing (like using negative numbers to read backwards) and array slicing.
+
+?Strings: 
+*Behave similarly to lists but are immutable. Modifying or updating a string creates a brand-new copy, making it an $O(n)$ time operation.
+
+?Queues: 
+*Imported as a deque (double-ended queue), allowing you to pop elements from the left side in $O(1)$ time—a necessity for 
+*Breadth-First Search (BFS) graph problems.
+*Hash Sets & Hashmaps: Crucial for $O(1)$ lookups. 
+*The creator explains how to leverage set/dictionary comprehensions to easily build structures like adjacency lists.
+
+?Tuples: 
+*Similar to arrays but immutable. They are uniquely useful because they are hashable, meaning they can act as composite keys in a map or set.
+
+!3. Advanced Utilities
+?Heaps (Priority Queues): 
+*Built using the heapq module. Python heaps are min-heaps by default. To implement a max-heap, you have to multiply your values by -1 upon 
+*insertion and inversion.
+
+?Sorting Customization: 
+*You can sort arrays easily, or pass a lambda function to the key parameter to create custom sorting rules (e.g., sorting a list of strings 
+*strictly by their length).
+
+?Nested & Non-Local Functions: 
+*Declaring helper functions inside an outer function allows them read-only access to parent variables automatically. 
+*To modify standard outer variables, you must declare them with the nonlocal keyword.
