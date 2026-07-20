@@ -12,7 +12,7 @@ class ExcelReader:
     def user_info(self):
         print("Checkiing for:\n")
         for e_col, e_type in MASTER_COLUMNS.items():
-            print(f"{e_col} {"->"} {e_type}")
+            print(f"{e_col} '->' {e_type}")
 
     def read(self):
         # get the complete exel file or workbook
@@ -92,10 +92,10 @@ class ExcelReader:
                     matches = get_close_matches(clean_input, clean_keys, n=1, cutoff=0.6) 
                     # print(matches)
                     if not matches:
-                        res = f"{e_col} {"->"}{matches}"
-                        missing_columns.append(f"{e_col} {"->"}{matches}")
+                        res = f"{e_col} '->' {matches}"
+                        missing_columns.append(f"{e_col} '->' {matches}")
                     else:
-                        res = f"{e_col} {"->"}{matches}"
+                        res = f"{e_col} '->'{matches}"
                         missing_columns.append(res)
                     continue
                 
