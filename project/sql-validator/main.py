@@ -24,6 +24,7 @@ def main():
         print(f"\nProcessing your request for {msg}\n")
         match option:
             case "1":
+                #TODO: implement a dynamic file path in config file
                 reader = ExcelReader("data/data_test.xlsx")
                 reader.read()
             case "2":
