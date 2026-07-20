@@ -3,27 +3,35 @@ from reader.excel_reader import ExcelReader
 def main():
     # print("we are running")
 
+    #* show menu when run.
+    def showMenu():
 
-    # for table in tables:
-    #     print(table)
-    # Add this at the exact end of your script
-    print("=== Welcome, please select a file type for checking ===\n")
-    print(f"note: check you have place your file in data/target_file\n")
+        print("=== Welcome, please select a file type for checking ===\n")
+        print(f"note: check you have place your file in data/target_file\n")
 
-    print(f"1. Excel File (xlsx)\n")
-    print(f"2. Sql (.sql)\n")
-
-        # 1. Take user input
-    user_input = input(" ")
-
-    if user_input != "":
-        print(f"\nProcessing your request.\n")
-        match user_input.strip():
+        print(f"1. Excel File (xlsx)\n")
+        print(f"2. Sql (.sql)\n")
+        
+        user_input = input(" ")
+        option = user_input.strip()
+        if option != "":
+            print("Please provide a valid input !")
+        
+        menuOptions = {"1": "Excel File (xlsx)", "2": "Sql File (.sql)"}
+        
+        msg = menuOptions.get(option)
+        
+        print(f"\nProcessing your request for {msg}\n")
+        match option:
             case "1":
                 reader = ExcelReader("data/data_test.xlsx")
                 reader.read()
             case "2":
                 print("ain't gonna do itself, ")
+
+    # 1. Take user input
+    showMenu()
+
             
     
     # print(f"\nProcessing your request, {user_name}...")
