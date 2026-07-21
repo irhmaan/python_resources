@@ -1,25 +1,29 @@
 # Project Structure
 
+```text
 sql-validator/
 │
-├── main.py # entry point
-├── requirements.txt
-├── README.md
+├── main.py                  # Application entry point
+├── requirements.txt         # Project dependencies
+├── README.md                # Project documentation
 │
 ├── data/
-│ └── books.csv
+│   └── data_test.xlsx            # Sample xlsx file
 │
-├── parser/
-│ ├── **init**.py
-│ └── csv_reader.py
+├── reader/
+│   ├── __init__.py
+│   └── excel_reader.py        # Reads and parses excel file
 │
 ├── validator/
-│ ├── **init**.py
-│ └── table_validator.py
+│   ├── __init__.py
+│   └── table_validator.py   # Validates table schema and data
 │
 ├── models/
-│ ├── **init**.py
-│ └── table.py
+│   ├── __init__.py
+│   └── table.py             # Table data model
 │
-└── utils/
-└── logger.py
+└── common/
+    └── logger.py            # Logging utilities
+    └── load_config.py       # load config.yml
+    └── app_log.py           # load app keys
+```
