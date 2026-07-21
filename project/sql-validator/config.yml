@@ -2,7 +2,7 @@
 enable_log: True
 
 # master column to check
-MASTER_COLUMNS:
+master_columns:
   RFID: VARCHAR(50)
   DTS_PASS: datetime
   DTS_SCAN: datetime

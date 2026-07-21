@@ -3,7 +3,8 @@ from pathlib import Path
 from datetime import datetime,timezone
 
 def setup_logger(
-    name: str = "my_app",
+    name: str = "validator",
+    enableLog: bool = False,
     level: int = logging.INFO,
 ) -> logging.Logger:
     """
@@ -19,7 +20,6 @@ def setup_logger(
     """
     utc_now = datetime.now(timezone.utc)
     date = utc_now.strftime("%Y-%m-%d")
-
     log_file = f"logs/{date}/app.log"
         
     # Create log directory if it doesn't exist
@@ -41,11 +41,12 @@ def setup_logger(
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
 
-    # File handler
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setFormatter(formatter)
+    if enableLog:
+        # File handler
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setFormatter(formatter)
 
-    logger.addHandler(console_handler)
-    logger.addHandler(file_handler)
+        logger.addHandler(console_handler)
+        logger.addHandler(file_handler)
 
     return logger

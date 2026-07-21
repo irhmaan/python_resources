@@ -1,7 +1,7 @@
 from pathlib import Path
 from openpyxl import load_workbook
 from difflib import get_close_matches
-from common.load_app_config import get_master_columns
+from common.app_config import get_master_columns
 from common.logger import setup_logger
 
 class ExcelReader:

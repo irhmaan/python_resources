@@ -1,13 +1,15 @@
 from reader.excel_reader import ExcelReader
 from common.logger import setup_logger
-from common import load_app_config
+from common.app_config import enable_log,get_Excelfile_path
+from common.load_config import load_config
+
 def main():
+    #* load config    
+    load_config()
     # setup logger
-    logger = setup_logger()
+    logger = setup_logger(enableLog=enable_log())
     logger.info("Application started")
 
-    #* load config
-    load_app_config.load_config()
     
     #* show menu when run.
     def showMenu():
@@ -31,7 +33,7 @@ def main():
         match option:
             case "1":
                 #TODO: implement a dynamic file path in config file
-                reader = ExcelReader(load_app_config.get_Excelfile_path())
+                reader = ExcelReader(get_Excelfile_path())
                 reader.read()
             case "2":
                 print("ain't gonna do itself, ")
