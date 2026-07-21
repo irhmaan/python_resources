@@ -1,7 +1,7 @@
 from pathlib import Path
 from openpyxl import load_workbook
 from difflib import get_close_matches
-from models.table import MASTER_COLUMNS
+from common.load_app_config import get_master_columns
 from common.logger import setup_logger
 
 class ExcelReader:
@@ -9,11 +9,13 @@ class ExcelReader:
     def __init__(self, file_path: str):
         self.logger = setup_logger()
         self.file_path = Path(file_path)
+        #* using config file to load the master columns.
+        self.master_columns = get_master_columns()
         # self.user_info()
         
     def user_info(self):
         print("Checkiing for:\n")
-        for e_col, e_type in MASTER_COLUMNS.items():
+        for e_col, e_type in self.master_columns.items():
             print(f"{e_col} '->' {e_type}")
 
     def read(self):
@@ -74,7 +76,7 @@ class ExcelReader:
             # print(sheet_schema)
 
             # loop in using our master colmuns to get the expected col and type
-            for e_col, e_type in MASTER_COLUMNS.items():
+            for e_col, e_type in self.master_columns.items():
                 # get the data type stored in sheet.
                 # need to use .lower() to avoid conflict in key mismatch
 

@@ -1,11 +1,14 @@
 from reader.excel_reader import ExcelReader
 from common.logger import setup_logger
+from common import load_app_config
 def main():
-    # print("we are running")
-
     # setup logger
     logger = setup_logger()
     logger.info("Application started")
+
+    #* load config
+    load_app_config.load_config()
+    
     #* show menu when run.
     def showMenu():
 
@@ -17,7 +20,7 @@ def main():
         
         user_input = input(" ")
         option = user_input.strip()
-        if option != "":
+        if option == "":
             print("Please provide a valid input !")
         
         menuOptions = {"1": "Excel File (xlsx)", "2": "Sql File (.sql)"}
