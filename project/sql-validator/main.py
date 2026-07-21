@@ -31,7 +31,7 @@ def main():
         match option:
             case "1":
                 #TODO: implement a dynamic file path in config file
-                reader = ExcelReader("data/data_test.xlsx")
+                reader = ExcelReader(load_app_config.get_Excelfile_path())
                 reader.read()
             case "2":
                 print("ain't gonna do itself, ")
