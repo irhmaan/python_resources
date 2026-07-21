@@ -1,8 +1,11 @@
 from reader.excel_reader import ExcelReader
-
+from common.logger import setup_logger
 def main():
     # print("we are running")
 
+    # setup logger
+    logger = setup_logger()
+    logger.info("Application started")
     #* show menu when run.
     def showMenu():
 

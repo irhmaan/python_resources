@@ -2,10 +2,12 @@ from pathlib import Path
 from openpyxl import load_workbook
 from difflib import get_close_matches
 from models.table import MASTER_COLUMNS
+from common.logger import setup_logger
 
 class ExcelReader:
     excel_sheet = None
     def __init__(self, file_path: str):
+        self.logger = setup_logger()
         self.file_path = Path(file_path)
         # self.user_info()
         
@@ -16,6 +18,8 @@ class ExcelReader:
 
     def read(self):
         # get the complete exel file or workbook
+        self.logger.info(f"Reading Excel file. Path: {self.file_path}\n")
+
         workbook = load_workbook(self.file_path)
         # check the sheets names - sanity check
         # print(workbook.sheetnames)
