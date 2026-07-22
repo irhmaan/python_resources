@@ -4,6 +4,8 @@ from difflib import get_close_matches
 from common.app_config import get_master_columns
 from common.logger import setup_logger
 
+from services.likely import SimilarColumn
+
 class ExcelReader:
     excel_sheet = None
     def __init__(self, file_path: str):
@@ -94,8 +96,8 @@ class ExcelReader:
                     clean_input = e_col.lower().strip()
                     clean_keys = [k.lower().strip() for k in sheet_schema.keys()]
 
-                    # Find the closest match (n=1 returns top 1 result, cutoff=0.6 is the threshold)
-                    matches = get_close_matches(clean_input, clean_keys, n=1, cutoff=0.6) 
+                    # get similar columns
+                    matches = SimilarColumn().getSimilarColumn(sourceWord=clean_input, possibilities=clean_keys)
                     # print(matches)
                     if not matches:
                         res = f"{e_col} '->' {matches}"
