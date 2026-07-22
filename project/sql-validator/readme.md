@@ -63,10 +63,13 @@ validator/
 # Screenshots
 
 Demo screenshot of the application:
-![Main menu](image-1.png)
-![Validator Result of given excel file](image.png)
+#### [Main menu]
+<img width="1096" height="579" alt="image" src="https://github.com/user-attachments/assets/46cba77b-d347-4539-be2c-24113ea3e7e0" />\
+#### [Validator output ]
+<img width="530" height="441" alt="image" src="https://github.com/user-attachments/assets/8a1a0c70-d1b0-4755-ac5d-80cbddddd111" />
+
 
 #### note: As you can see, it also reports:
 
 1. the expected column and actual column found [likely-ness]
-2. Expected column data type and reported data type.
+2. type mis-match of expected column and actual reported column .
