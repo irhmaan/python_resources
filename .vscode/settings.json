@@ -46,5 +46,6 @@
     "italic": false
   }
 ],
-"better-comments.highlightPlainText": true
+"better-comments.highlightPlainText": true,
+"python-envs.defaultEnvManager": "ms-python.python:system"
 }

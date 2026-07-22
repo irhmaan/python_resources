@@ -17,6 +17,8 @@ def main():
         print("=== Welcome, please select a file type for checking ===\n")
         print(f"note: check you have place your file in data/target_file\n")
 
+        print(f"For supported file structure, please check readme.txt")
+
         print(f"1. Excel File (xlsx)\n")
         print(f"2. Sql (.sql)\n")
         
@@ -31,11 +33,10 @@ def main():
         
         print(f"\nProcessing your request for {msg}\n")
         match option:
-            case "1":
-                #TODO: implement a dynamic file path in config file
+            case "1": # parse excel 
                 reader = ExcelReader(get_Excelfile_path())
                 reader.read()
-            case "2":
+            case "2": # parse sql file
                 print("ain't gonna do itself, ")
 
     # 1. Take user input
