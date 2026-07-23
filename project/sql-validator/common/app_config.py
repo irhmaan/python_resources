@@ -33,3 +33,15 @@ def  get_Excelfile_path() -> str:
             'excel file path not defined in app_config.yml'
         )
     return app_config['excel_file_path']
+
+def worksheet_to_remove()-> list[str]:
+    '''
+    Use this to remove unwanted worksheet if present in excel workbook.
+    Specify the names in config.yml if any.
+    '''
+    worksheet = app_config['worksheet_to_remove']
+    if app_config and worksheet:
+        logger.info(f'woksheet configured to be removed from workbook. {worksheet}' )
+    else:
+        logger.info("No woksheet configured to be removed from workbook.")
+    return worksheet

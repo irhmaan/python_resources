@@ -1,6 +1,10 @@
 # key to enable log
 enable_log: True
 
+# mention the name of sheet to remove from excel workbook before processing
+# name should be a list.
+worksheet_to_remove:
+
 # master column to check
 master_columns:
   RFID: VARCHAR(50)

@@ -1,12 +1,12 @@
 from pathlib import Path
 from openpyxl import load_workbook
-from difflib import get_close_matches
-from common.app_config import get_master_columns
+from common.app_config import get_master_columns,worksheet_to_remove
 from common.logger import setup_logger
 
 from services.likely import SimilarColumn
 
 class ExcelReader:
+    # clean workbook after removing unwanted column.
     excel_sheet = None
     def __init__(self, file_path: str):
         self.logger = setup_logger()
@@ -21,28 +21,30 @@ class ExcelReader:
             print(f"{e_col} '->' {e_type}")
 
     def read(self):
-        # get the complete exel file or workbook
         self.logger.info(f"Reading Excel file. Path: {self.file_path}\n")
 
         workbook = load_workbook(self.file_path)
         # check the sheets names - sanity check
         # print(workbook.sheetnames)
 
+        # sheet_name = "Table Name"
 
-        sheet_name = "Table Name"
+        # if unwanted excel sheets are present, we can remove  or filter them and create an updated excel
+        sheet_to_removed = worksheet_to_remove()
+        if sheet_to_removed:
+            for sheet_name in sheet_to_removed:
+                if sheet_name in workbook.sheetnames:
+                    worksheet = workbook[sheet_name]
+                    workbook.remove(worksheet)
 
-        if sheet_name in workbook.sheetnames:
-            worksheet = workbook[sheet_name]
-            workbook.remove(worksheet)
-
+        # save workbook after removing the specified columns
         self.excel_sheet = workbook
         workbook.save("data/data_test.xlsx")
-
 
         self.validateExcel()
        
     def validateExcel(self):
-        workbook = self.excel_sheet
+        cleaned_workbook = self.excel_sheet
         # store missing columns
         missing_columns = []
         # store mis-match data type
@@ -50,7 +52,7 @@ class ExcelReader:
         worksheet_schema = {}
 
         # loop through the sheets found.
-        for sheet in workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
+        for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
 
             sheet_title = sheet.title
 
