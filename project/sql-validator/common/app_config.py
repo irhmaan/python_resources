@@ -34,6 +34,17 @@ def  get_Excelfile_path() -> str:
         )
     return app_config['excel_file_path']
 
+def  get_sqlfile_path() -> str:
+    '''
+    Get the SQL file path for validating from app_config.yml.
+    '''
+    if app_config is None:
+        logger.info("sql file path not defined in app_config.yml")
+        raise RuntimeError(
+            'sql file path not defined in app_config.yml'
+        )
+    return app_config['sql_file_path']
+
 def worksheet_to_remove()-> list[str]:
     '''
     Use this to remove unwanted worksheet if present in excel workbook.

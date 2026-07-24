@@ -24,6 +24,9 @@ master_columns:
   MachineCode: VARCHAR(50)
   OperationCode: VARCHAR(50)
   TS_Flag: smallint
-
+  IsRework: bit
 # Excel file path
 excel_file_path: "data/data_test.xlsx"
+
+#sql file path
+sql_file_path: "data/data_test.sql"

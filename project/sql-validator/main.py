@@ -2,6 +2,7 @@ from reader.excel_reader import ExcelReader
 from common.logger import setup_logger
 from common.app_config import enable_log,get_Excelfile_path
 from common.load_config import load_config
+from reader.sql_parser import SqlParser
 
 def main():
     #* load config    
@@ -37,7 +38,9 @@ def main():
                 reader = ExcelReader(get_Excelfile_path())
                 reader.read()
             case "2": # parse sql file
-                print("ain't gonna do itself, ")
+                # print("ain't gonna do itself, ")
+                sqlParse = SqlParser()
+                sqlParse.parse()
 
     # 1. Take user input
     showMenu()
