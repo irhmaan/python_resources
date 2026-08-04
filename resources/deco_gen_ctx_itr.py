@@ -17,14 +17,17 @@ def hello():
 
 # hello = functobedecorated(hello)
 
+def f():
+   x = 15
+   print(x)
+x = 12
+f()
 
 #* logging decorator
 # this will be a func that is decorated original function passed to it will execute as it is , do stuff inside this.
 def log_call(func):
     def wrapper(*args, **kwargs):
         print(f'calling {func.__name__}')
-
-        print('connecting...')
         print ('args', args)
         print ('kwargs', kwargs)
         # print(func)
@@ -40,7 +43,7 @@ def add(a,b):
 def minus(a,b):
     return a-b
 
-# print(add(3,7))
+print(add(3,7))
 
 # print(minus(3,7))
 

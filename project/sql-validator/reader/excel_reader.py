@@ -50,12 +50,20 @@ class ExcelReader:
         # store mis-match data type
         wrong_types = []
         worksheet_schema = {}
-
+        # tables = ()
+        tables = set()
         # loop through the sheets found.
+        for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
+            tables.add(sheet.title)
+
+                    
+        if tables:
+            print(f'\n ========= Tables ===========')
+            for index, tableName in enumerate(tables):
+                print(f'{index+1}    {tableName}')
         for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
 
             sheet_title = sheet.title
-
             # Initialize schema for this sheet
             worksheet_schema[sheet_title] = {}
 
