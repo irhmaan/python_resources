@@ -1,0 +1,3 @@
+            select count(*) as 'PushedCount', '@PlaceHolder@' as 'TableName'
+            from @PlaceHolder@(nolock) where ISNULL(TS_FLAG,0)=0
+            UNION

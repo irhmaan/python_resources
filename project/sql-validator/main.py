@@ -1,12 +1,22 @@
 from reader.excel_reader import ExcelReader
 from common.logger import setup_logger
 from common.app_config import enable_log,get_Excelfile_path
-from common.load_config import load_config
+from common.load_config import init
+
+from common import (
+    logger,
+    app_config,
+    load_config
+)
+
+from services import (operation_mst, machine_mst, mes_mode)
+
 from reader.sql_parser import SqlParser
+
 
 def main():
     #* load config    
-    load_config()
+    load_config.init()
     # setup logger
     logger = setup_logger(enableLog=enable_log())
     logger.info("Application started")
@@ -15,32 +25,61 @@ def main():
     #* show menu when run.
     def showMenu():
 
-        print("=== Welcome, please select a file type for checking ===\n")
+        print("=== Welcome, please select a option ===\n")
         print(f"note: check you have place your file in data/target_file\n")
 
         print(f"For supported file structure, please check readme.txt")
 
-        print(f"1. Excel File (xlsx)\n")
-        print(f"2. Sql (.sql)\n")
+        print("\nPress Enter or type 'exit' to exit the script...\n")
+
+        while(True):
+
+
+            menuOptions = {
+                        "1": "Excel File (xlsx)", 
+                        "2": "Sql File (.sql)", 
+                        '3': 'Generate OperationMst',
+                        '4': 'Generate MachineMst',
+                        '5': 'Generate MES mode'                        
+                        }
+            for i , value in enumerate(menuOptions.values()):         
+                print(f"{i+1}. {value}\n")
+
+
+              
+            user_input = input(" ")
+            option = user_input.strip()
+            # if option == "":
+            #     print("Please provide a valid input !")
+
+            
+
+            if option.lower() in [ 'exit', '']:
+                break
+
+            msg = menuOptions.get(option)
+            
+            print(f"\nProcessing your request for {msg}\n")
+            match option:
+                case "1": # parse excel 
+                    reader = ExcelReader(get_Excelfile_path())
+                    reader.read()
+                case "2": # parse sql file
+                    # print("ain't gonna do itself, ")
+                    sqlParse = SqlParser()
+                    sqlParse.parse()
+                case '3':
+                    o =    operation_mst.GenerateOperationMst()
+                    o.createOperationInsert()
+                case '4':
+                    mst = machine_mst.GenerateMachineMst()
+                    mst.createOperationInsert()
+                case '5':
+                    mes = mes_mode.GenerateMESModes()
+                    mes.__init__
+
+
         
-        user_input = input(" ")
-        option = user_input.strip()
-        if option == "":
-            print("Please provide a valid input !")
-        
-        menuOptions = {"1": "Excel File (xlsx)", "2": "Sql File (.sql)"}
-        
-        msg = menuOptions.get(option)
-        
-        print(f"\nProcessing your request for {msg}\n")
-        match option:
-            case "1": # parse excel 
-                reader = ExcelReader(get_Excelfile_path())
-                reader.read()
-            case "2": # parse sql file
-                # print("ain't gonna do itself, ")
-                sqlParse = SqlParser()
-                sqlParse.parse()
 
     # 1. Take user input
     showMenu()
@@ -59,4 +98,5 @@ if __name__ == "__main__":
         print(f"\nAn error occurred: {e}")
     finally:
         # Keeps the executable window open at the very end
-        input("\nPress Enter to close this window...")
+        # input("\nPress Enter to close this window...")
+        pass

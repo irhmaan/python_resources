@@ -2,6 +2,7 @@ from pathlib import Path
 from openpyxl import load_workbook
 from common.app_config import get_master_columns,worksheet_to_remove
 from common.logger import setup_logger
+from common.file_writer import FileWriter
 
 from services.likely import SimilarColumn
 
@@ -14,7 +15,7 @@ class ExcelReader:
         #* using config file to load the master columns.
         self.master_columns = get_master_columns()
         # self.user_info()
-        
+        self.tableNames = set()
     def user_info(self):
         print("Checkiing for:\n")
         for e_col, e_type in self.master_columns.items():
@@ -42,7 +43,21 @@ class ExcelReader:
         workbook.save("data/data_test.xlsx")
 
         self.validateExcel()
-       
+
+
+    def printTableNames(self):
+        if self.tableNames:
+            for i, v in enumerate(self.tableNames):    
+                print(f'{i+1}   {v}') 
+
+    def createTableNameFile(self):
+        table_name_file = FileWriter('Table_Names.txt')            
+        table_name_file.clear_content()
+        for name in self.tableNames:
+            table_name_file.write_file(name)
+
+        print(f'Written table names to: ', table_name_file.file_path)
+
     def validateExcel(self):
         cleaned_workbook = self.excel_sheet
         # store missing columns
@@ -50,17 +65,19 @@ class ExcelReader:
         # store mis-match data type
         wrong_types = []
         worksheet_schema = {}
-        # tables = ()
-        tables = set()
-        # loop through the sheets found.
-        for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
-            tables.add(sheet.title)
 
-                    
-        if tables:
-            print(f'\n ========= Tables ===========')
-            for index, tableName in enumerate(tables):
-                print(f'{index+1}    {tableName}')
+        # loop through the sheets found.
+        print(f'\n ========= Tables ===========')
+
+        for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
+            # tables.add(sheet.title)
+            if(sheet.title == 'Table Name'):
+                for row in sheet.iter_rows(min_col=3,max_col=3,min_row=2,values_only=True):
+                    self.tableNames.add(row[0])
+
+        self.printTableNames()
+        self.createTableNameFile()
+
         for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
 
             sheet_title = sheet.title
@@ -68,14 +85,14 @@ class ExcelReader:
             worksheet_schema[sheet_title] = {}
 
             # Read columns A and B
-            for c_name, dtype in sheet.iter_rows(
+            for row, dtype in sheet.iter_rows(
                 min_col=1,
                 max_col=2,
                 values_only=True
             ):
 
-                if c_name:
-                    worksheet_schema[sheet_title][str(c_name).strip().lower()] = (
+                if row:
+                    worksheet_schema[sheet_title][str(row).strip().lower()] = (
                         str(dtype).strip()
                     )
             # store missing columns
@@ -123,8 +140,9 @@ class ExcelReader:
                         (e_col, e_type, actual_dtype)
                     )
 
+            if( sheet_title  == 'Table Name'):
+                continue
             print(f"\n=== Worksheet: {sheet_title} ===")
-
             if missing_columns:
                 print("Missing columns:")
                 for col in missing_columns:

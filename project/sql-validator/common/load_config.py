@@ -28,7 +28,7 @@ def get_config_path():
 
 config_path = get_config_path()
 
-def load_config() -> None:
+def init() -> None:
     with open(config_path, "r", encoding="utf-8") as cfile:
         CONFIG = yaml.safe_load(cfile)
         logger.info("config file loaded.")
