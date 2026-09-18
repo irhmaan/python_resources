@@ -1,10 +1,8 @@
 from reader.excel_reader import ExcelReader
 from common.logger import setup_logger
-from common.app_config import enable_log,get_Excelfile_path
 from common.load_config import init
 
 from common import (
-    logger,
     app_config,
     load_config
 )
@@ -18,7 +16,7 @@ def main():
     #* load config    
     load_config.init()
     # setup logger
-    logger = setup_logger(enableLog=enable_log())
+    logger = setup_logger(enableLog=app_config.enable_log())
     logger.info("Application started")
 
     
@@ -26,7 +24,7 @@ def main():
     def showMenu():
 
         print("=== Welcome, please select a option ===\n")
-        print(f"note: check you have place your file in data/target_file\n")
+        print(f"note: check you have placed your file in data/target_file\n")
 
         print(f"For supported file structure, please check readme.txt")
 
@@ -38,8 +36,8 @@ def main():
             menuOptions = {
                         "1": "Excel File (xlsx)", 
                         "2": "Sql File (.sql)", 
-                        '3': 'Generate OperationMst',
-                        '4': 'Generate MachineMst',
+                        '3': 'Generate Operation Master',
+                        '4': 'Generate Machine Master',
                         '5': 'Generate MES mode'                        
                         }
             for i , value in enumerate(menuOptions.values()):         
@@ -62,7 +60,7 @@ def main():
             print(f"\nProcessing your request for {msg}\n")
             match option:
                 case "1": # parse excel 
-                    reader = ExcelReader(get_Excelfile_path())
+                    reader = ExcelReader(app_config.get_Excelfile_path())
                     reader.read()
                 case "2": # parse sql file
                     # print("ain't gonna do itself, ")

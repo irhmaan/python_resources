@@ -7,7 +7,7 @@ class GenerateOperationMst:
 
     def __init__(self) -> None:
         self.logger = logger.setup_logger()
-        self.fw = file_writer.FileWriter('OperationMst.sql')
+        self.fw = file_writer.FileWriter('output/OperationMst.sql')
         self.file_path = Path('Table_Names.txt')
         
 

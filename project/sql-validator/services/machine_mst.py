@@ -5,7 +5,7 @@ class GenerateMachineMst:
 
     def __init__(self) -> None:
         self.logger = logger.setup_logger()
-        self.fw = file_writer.FileWriter('MachineMst.sql')
+        self.fw = file_writer.FileWriter('output/MachineMst.sql')
         self.file_path = Path('Table_Names.txt')
 
         if not self.file_path.exists():

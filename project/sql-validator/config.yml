@@ -6,6 +6,7 @@ enable_log: True
 worksheet_to_remove:
 
 # master column to check
+# can we have aliasing ?
 master_columns:
   RFID: VARCHAR(50)
   DTS_PASS: datetime
@@ -30,3 +31,8 @@ excel_file_path: "data/data_test.xlsx"
 
 #sql file path
 sql_file_path: "data/data_test.sql"
+
+#template_1 path
+template_1_path: "./templates/template_1.txt"
+#template_2 path
+template_2_path: "./templates/template_2.txt"

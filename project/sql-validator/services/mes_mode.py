@@ -1,15 +1,22 @@
 from pathlib import Path
 
-from common import (logger, file_writer)
+from common import (logger, file_writer, load_config)
 
 class GenerateMESModes:
-
+    '''
+    Create MES mode script using template_1 & template_2 defined in /templates dir.
+    '''
     def __init__(self):
         self.logger = logger.setup_logger()
-        self.ofileWrite = file_writer.FileWriter('Auto_MesModes.sql')
+        self.app_config = load_config.app_config
+        self.template_1_path = self.app_config['template_1_path']
+        self.template_2_path = self.app_config['template_2_path']
+
+        self.ofileWrite = file_writer.FileWriter('output/Auto_MesModes.sql')
         self.table_names_file_path = Path('Table_Names.txt')
-        self.mes_push_section = Path(r'./templates/template_1.txt')
-        self.pick_count_section = Path(r'./templates/template_2.txt')
+        
+        self.mes_push_section = Path(fr'{self.template_1_path}')
+        self.pick_count_section = Path(fr'{self.template_2_path}')
 
         self.logger.info(f'Template for mes_push_section: {self.mes_push_section}')
 

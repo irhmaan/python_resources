@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 from openpyxl import load_workbook
 from common.app_config import get_master_columns,worksheet_to_remove
@@ -45,15 +46,30 @@ class ExcelReader:
         self.validateExcel()
 
 
+    def alphanumeric_key(self, item: str) -> list:
+        '''
+        Sort the table names using regex and return sorted names as a list.
+        '''
+        pattern = r'(\d+)'
+        
+        # 1. Split the single string item into chunks of text and digits
+        split_text = re.split(pattern, item)
+        
+        # 2. Process all chunks for this specific item and return them as a list
+        return [int(t) if t.isdigit() else t.lower() for t in split_text if t]
+    
+
     def printTableNames(self):
         if self.tableNames:
             for i, v in enumerate(self.tableNames):    
                 print(f'{i+1}   {v}') 
 
     def createTableNameFile(self):
+        self.tableNames_list = sorted(self.tableNames, key=self.alphanumeric_key)
         table_name_file = FileWriter('Table_Names.txt')            
         table_name_file.clear_content()
-        for name in self.tableNames:
+        for name in self.tableNames_list:
+            # print(type(name))
             table_name_file.write_file(name)
 
         print(f'Written table names to: ', table_name_file.file_path)
