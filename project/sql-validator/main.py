@@ -65,7 +65,7 @@ def main():
                 case "2": # parse sql file
                     # print("ain't gonna do itself, ")
                     sqlParse = SqlParser()
-                    sqlParse.parse()
+                    sqlParse.__init__()
                 case '3':
                     o =    operation_mst.GenerateOperationMst()
                     o.createOperationInsert()

@@ -13,7 +13,7 @@ class FileWriter:
     
     """
 
-    SUPPORTED_EXTENSIONS = {".txt", ".sql"}
+    SUPPORTED_EXTENSIONS = {".txt", ".sql" , ".yml"}
 
     def __init__(self, filename: str):
         self.file_path = Path(filename)

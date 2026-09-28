@@ -17,6 +17,8 @@ class ExcelReader:
         self.master_columns = get_master_columns()
         # self.user_info()
         self.tableNames = set()
+        self.fw = FileWriter('output/script_result.yml')
+
     def user_info(self):
         print("Checkiing for:\n")
         for e_col, e_type in self.master_columns.items():
@@ -65,11 +67,13 @@ class ExcelReader:
                 print(f'{i+1}   {v}') 
 
     def createTableNameFile(self):
-        self.tableNames_list = sorted(self.tableNames, key=self.alphanumeric_key)
+        self.tableNames_list : list[str] = sorted(self.tableNames, key=self.alphanumeric_key)
         table_name_file = FileWriter('Table_Names.txt')            
         table_name_file.clear_content()
         for name in self.tableNames_list:
             # print(type(name))
+            if name.__contains__('&'):
+                name = name.replace('&', 'And')
             table_name_file.write_file(name)
 
         print(f'Written table names to: ', table_name_file.file_path)
@@ -159,19 +163,24 @@ class ExcelReader:
             if( sheet_title  == 'Table Name'):
                 continue
             print(f"\n=== Worksheet: {sheet_title} ===")
+            self.fw.write_file(f"Worksheet: {sheet_title}")
             if missing_columns:
                 print("Missing columns:")
                 for col in missing_columns:
+                    self.fw.write_file(f"  - {col}")
                     print(f"  - {col}")
 
             if wrong_types:
                 print("Type mismatches:")
                 for col, expected, actual in wrong_types:
+                    self.fw.write_file(f" - {col}: expected {expected}, found {actual}")
                     print(
                         f"  - {col}: expected {expected}, found {actual}"
                     )
 
             if not missing_columns and not wrong_types:
+                self.fw.write_file("OK. Schema validation passed.")
+                
                 print("OK. Schema validation passed.")
 
         return missing_columns, wrong_types
