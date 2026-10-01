@@ -1,1 +1,2 @@
-project/sql-validator/.penv/
+project/sql-validator/penv/
+*resources/sql_alchemy/
