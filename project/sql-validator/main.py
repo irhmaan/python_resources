@@ -26,7 +26,7 @@ def main():
         print("=== Welcome, please select a option ===\n")
         print(f"note: check you have placed your file in data/target_file\n")
 
-        print(f"For supported file structure, please check readme.txt")
+        print(f"For supported file structure, please check readme.md")
 
         print("\nPress Enter or type 'exit' to exit the script...\n")
 
@@ -60,12 +60,12 @@ def main():
             print(f"\nProcessing your request for {msg}\n")
             match option:
                 case "1": # parse excel 
-                    reader = ExcelReader(app_config.get_Excelfile_path())
+                    reader = ExcelReader(file_path=app_config.get_Excelfile_path())
                     reader.read()
                 case "2": # parse sql file
                     # print("ain't gonna do itself, ")
                     sqlParse = SqlParser()
-                    sqlParse.__init__()
+                    # sqlParse.__init__()
                 case '3':
                     o =    operation_mst.GenerateOperationMst()
                     o.createOperationInsert()
