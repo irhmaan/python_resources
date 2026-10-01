@@ -56,3 +56,26 @@ def worksheet_to_remove()-> list[str]:
     else:
         logger.info("No woksheet configured to be removed from workbook.")
     return worksheet
+
+def get_invalid_chars():
+    '''
+    Use this to remove unwanted worksheet if present in excel workbook.
+    Specify the names in config.yml if any.
+    '''
+    invalid_chars: list = app_config['invalid_charaters']
+    if app_config and invalid_chars:
+        logger.info(f'Invalid Characters. {invalid_chars}' )
+    else:
+        logger.info("No invalid_chars found in config.yml. Define If require to check for invalid chars in table/columns.")
+    return invalid_chars
+
+def get_encoding_schemes()-> list[str]:
+    """
+    Contains a list of encodings to try reading a sql file
+    """
+    encoding_scheme: list[str] = app_config["encodings_schemes"]
+    if app_config and encoding_scheme:
+            logger.info(f'Encodings. {encoding_scheme}' )
+    else:
+        logger.info("No encoding scheme found. Pls mention compatible schemes to read sql file.")
+    return encoding_scheme

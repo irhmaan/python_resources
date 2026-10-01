@@ -8,7 +8,7 @@ worksheet_to_remove:
 # master column to check
 # can we have aliasing ?
 master_columns:
-  RFID: VARCHAR(50)
+  RFID: VARCHAR(100)
   DTS_PASS: datetime
   DTS_SCAN: datetime
   WORKORDER: VARCHAR(50)
@@ -27,12 +27,22 @@ master_columns:
   TS_Flag: smallint
   IsRework: bit
 # Excel file path
-excel_file_path: "data/data_test.xlsx"
+# excel_file_path: "data/schema.xlsx"
+
+# Encoding schemes to try while reading sql file
+encodings_schemes:
+  ["utf-8-sig", "utf-16", "utf-16-le", "utf-16-be", "cp1252", "latin-1"]
+
+excel_file_path: "output/table_schema.xlsx"
 
 #sql file path
-sql_file_path: "data/data_test.sql"
+sql_file_path: "data/schema_3.sql"
 
 #template_1 path
 template_1_path: "./templates/template_1.txt"
 #template_2 path
 template_2_path: "./templates/template_2.txt"
+
+# validations for correct schema - table and column names
+
+invalid_charaters: ["&", "(", ")"]
