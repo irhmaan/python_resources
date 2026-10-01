@@ -1,0 +1,150 @@
+Worksheet: PUSH_OP10_Bore_Oil
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP10_Cont_Torq
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP10_Seal_Checking
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP20_HP
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP20_Loading
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP20_LP
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP20_Orientation
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP20_Piston_Assembly
+    Missing columns:
+     - MODEL_NO '->' []
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP20_Unloading
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP30_Boot_Pressing
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP40_ASR
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP40_Dcode_Marking
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: Push_OP40_Label_Printing
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+Worksheet: PUSH_OP40_Loading
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP40_Probing_Test
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP40_Profile_test
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP40_Torquing
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP40_Unloading
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
+Worksheet: PUSH_OP50_Auto_Inspection
+    Missing columns:
+     - MODEL_NO '->'['modelno']
+     - ProfitCenterCode '->'['profitcenter']
+     - IsRework '->' []
+    Type mismatches:
+     - RFID: expected VARCHAR(100), found varchar(50)
+     - Serial_No: expected int, found varchar(50)
