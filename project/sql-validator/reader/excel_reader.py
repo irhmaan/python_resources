@@ -1,14 +1,15 @@
 import re
 from pathlib import Path
 from openpyxl import load_workbook
-from common.app_config import get_master_columns,worksheet_to_remove
+from common import app_config
+from common.app_config import get_master_columns,worksheet_to_remove,get_invalid_chars
 from common.logger import setup_logger
 from common.file_writer import FileWriter
 
 from services.likely import SimilarColumn
 
 class ExcelReader:
-    # clean workbook after removing unwanted column.
+
     excel_sheet = None
     def __init__(self, file_path: str):
         self.logger = setup_logger()
@@ -17,7 +18,8 @@ class ExcelReader:
         self.master_columns = get_master_columns()
         # self.user_info()
         self.tableNames = set()
-        self.fw = FileWriter('output/script_result.yml')
+        self.result_fw = FileWriter('output/script_result.yml')
+        self.invalid_chars = get_invalid_chars()
 
     def user_info(self):
         print("Checkiing for:\n")
@@ -64,19 +66,23 @@ class ExcelReader:
     def printTableNames(self):
         if self.tableNames:
             for i, v in enumerate(self.tableNames):    
-                print(f'{i+1}   {v}') 
+                self.logger.info(f'{i+1}   {v}') 
 
     def createTableNameFile(self):
         self.tableNames_list : list[str] = sorted(self.tableNames, key=self.alphanumeric_key)
-        table_name_file = FileWriter('Table_Names.txt')            
+        table_name_file = FileWriter('output/tables.txt')            
         table_name_file.clear_content()
         for name in self.tableNames_list:
             # print(type(name))
-            if name.__contains__('&'):
-                name = name.replace('&', 'And')
+
+            for char in self.invalid_chars:
+                if name.__contains__(char):
+                    # print(f"Found & in Table name : {name} - replace with 'And'")
+                    self.logger.warning(f"Found & in Table name : {name} - replace with 'And'")
+                    name = name.replace('&', 'And')
             table_name_file.write_file(name)
 
-        print(f'Written table names to: ', table_name_file.file_path)
+        self.logger.info(f'Output file: {table_name_file.file_path}', )
 
     def validateExcel(self):
         cleaned_workbook = self.excel_sheet
@@ -87,15 +93,15 @@ class ExcelReader:
         worksheet_schema = {}
 
         # loop through the sheets found.
-        print(f'\n ========= Tables ===========')
-
+        # print(f'\n ========= Tables ===========')
+        self.result_fw.clear_content()
         for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
             # tables.add(sheet.title)
             if(sheet.title == 'Table Name'):
                 for row in sheet.iter_rows(min_col=3,max_col=3,min_row=2,values_only=True):
                     self.tableNames.add(row[0])
 
-        self.printTableNames()
+        # self.printTableNames()
         self.createTableNameFile()
 
         for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
@@ -162,26 +168,29 @@ class ExcelReader:
 
             if( sheet_title  == 'Table Name'):
                 continue
-            print(f"\n=== Worksheet: {sheet_title} ===")
-            self.fw.write_file(f"Worksheet: {sheet_title}")
+            # print(f"\n=== Worksheet: {sheet_title} ===")
+            self.result_fw.write_file(f"Worksheet: {sheet_title}")
             if missing_columns:
-                print("Missing columns:")
+                self.result_fw.write_file(f"    Missing columns:")
+                # print("Missing columns:")
                 for col in missing_columns:
-                    self.fw.write_file(f"  - {col}")
-                    print(f"  - {col}")
+                    self.result_fw.write_file(f"     - {col}")
+                    # print(f"  - {col}")
 
             if wrong_types:
-                print("Type mismatches:")
+                # print("Type mismatches:")
+                self.result_fw.write_file("    Type mismatches:")
                 for col, expected, actual in wrong_types:
-                    self.fw.write_file(f" - {col}: expected {expected}, found {actual}")
-                    print(
-                        f"  - {col}: expected {expected}, found {actual}"
-                    )
+                    self.result_fw.write_file(f"     - {col}: expected {expected}, found {actual}")
+                    # print(
+                    #     f"  - {col}: expected {expected}, found {actual}"
+                    # )
 
             if not missing_columns and not wrong_types:
-                self.fw.write_file("OK. Schema validation passed.")
+                self.result_fw.write_file("OK. Schema validation passed.")
                 
                 print("OK. Schema validation passed.")
 
-        return missing_columns, wrong_types
+        self.logger.info(f'Output file: {self.result_fw.file_path}', )
+        # return missing_columns, wrong_types
 
