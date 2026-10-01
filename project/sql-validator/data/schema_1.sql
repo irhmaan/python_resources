@@ -1,0 +1,828 @@
+USE [BTS_J11_LIVE]
+GO
+/****** Object:  Table [dbo].[PUSH_OP10_Bore_Oil]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP10_Bore_Oil](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Bore_Oiling_Result_Single_Pot] [varchar](50) NULL,
+	[Bore_Oiling_Result_Twin_Pot] [varchar](50) NULL,
+	[Feed_Port_Checking_Status] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED1] [varchar](50) NULL,
+	[RESERVED2] [varchar](50) NULL,
+	[RESERVED3] [varchar](50) NULL,
+	[RESERVED4] [varchar](50) NULL,
+	[RESERVED5] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP10_Cont_Torq]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP10_Cont_Torq](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Bleed_Screw_Torque_Min_Nm] [varchar](50) NULL,
+	[Bleed_Screw_Torque_Act_Nm] [varchar](50) NULL,
+	[Bleed_Screw_Torque_Max_Nm] [varchar](50) NULL,
+	[Bleed_Screw_Angle_Min_Deg] [varchar](50) NULL,
+	[Bleed_Screw_Angle_Act_Deg] [varchar](50) NULL,
+	[Bleed_Screw_Angle_Max_Deg] [varchar](50) NULL,
+	[Continuity_Test_Lim] [varchar](50) NULL,
+	[Continuity_Test_Actual] [varchar](50) NULL,
+	[Continuity_Result] [varchar](50) NULL,
+	[Bleed_screw_Torque_Result_Nm] [varchar](50) NULL,
+	[No_of_Dummy_Strokes] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED11] [varchar](50) NULL,
+	[RESERVED12] [varchar](50) NULL,
+	[RESERVED13] [varchar](50) NULL,
+	[RESERVED14] [varchar](50) NULL,
+	[RESERVED15] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP10_Seal_Checking]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP10_Seal_Checking](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Seal_Check_Vision_Limit] [varchar](50) NULL,
+	[Seal_Check_1_Vision_Actual_Status] [varchar](50) NULL,
+	[Seal_Check_2_Vision_Actual_Status] [varchar](50) NULL,
+	[Seal_Check_Result] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED6] [varchar](50) NULL,
+	[RESERVED7] [varchar](50) NULL,
+	[RESERVED8] [varchar](50) NULL,
+	[RESERVED9] [varchar](50) NULL,
+	[RESERVED10] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP20_HP]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP20_HP](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[HP_Test_Result] [varchar](50) NULL,
+	[HP_Test_Cycle_Time] [varchar](50) NULL,
+	[HP_Fill_Min_b] [varchar](50) NULL,
+	[HP_Fill_Act_b] [varchar](50) NULL,
+	[HP_Fill_Max_b] [varchar](50) NULL,
+	[HP_Fill_Time_s] [varchar](50) NULL,
+	[HP_Stb_Time_s] [varchar](50) NULL,
+	[HP_Test_Time_s] [varchar](50) NULL,
+	[HP_Drop_Max_b] [varchar](50) NULL,
+	[HP_Drop_Act_b] [varchar](50) NULL,
+	[Unloading_Result] [varchar](50) NULL,
+	[Unloading_Cycle_Time] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED36] [varchar](50) NULL,
+	[RESERVED37] [varchar](50) NULL,
+	[RESERVED38] [varchar](50) NULL,
+	[RESERVED39] [varchar](50) NULL,
+	[RESERVED40] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP20_Loading]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP20_Loading](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Loading_Station_Result] [varchar](50) NULL,
+	[Pallet_Number] [varchar](50) NULL,
+	[Loading_Status] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED16] [varchar](50) NULL,
+	[RESERVED17] [varchar](50) NULL,
+	[RESERVED18] [varchar](50) NULL,
+	[RESERVED19] [varchar](50) NULL,
+	[RESERVED20] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP20_LP]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP20_LP](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[PFT_Result] [varchar](50) NULL,
+	[PFT_Cycle_Time] [varchar](50) NULL,
+	[PISTON_FREE_AIR_FILL_TIME] [varchar](50) NULL,
+	[PISTON_FREE_TEST_TIME] [varchar](50) NULL,
+	[PISTON_FREE_LOW_PR_LIMIT] [varchar](50) NULL,
+	[PISTON_FREE_PRES_ACT] [varchar](50) NULL,
+	[PISTON_FREE_HIGH_PR_LIMIT] [varchar](50) NULL,
+	[PISTON_FREE_MIN_DROP_LIMIT] [varchar](50) NULL,
+	[PFT_DROP_ACTUAL] [varchar](50) NULL,
+	[Test_Method_Dynamic] [varchar](50) NULL,
+	[Dyn_LP_Test_Result] [varchar](50) NULL,
+	[Dyn_LP_Test_Cycle_Time] [varchar](50) NULL,
+	[Dyn_LP_Fill_Min_b] [varchar](50) NULL,
+	[Dyn_LP_Fill_Act_b] [varchar](50) NULL,
+	[Dyn_LP_Fill_Max_b] [varchar](50) NULL,
+	[Dyn_LP_Fill_Time_s] [varchar](50) NULL,
+	[Dyn_LP_Stb_Time_s] [varchar](50) NULL,
+	[Dyn_LP_Test_Time_s] [varchar](50) NULL,
+	[Dyn_LP_Drop_Max_b] [varchar](50) NULL,
+	[Dyn_LP_Drop_Act_b] [varchar](50) NULL,
+	[Piston_Stroke_Set] [varchar](50) NULL,
+	[Piston_Stroke_Act] [varchar](50) NULL,
+	[Stc_LP_Test_Result] [varchar](50) NULL,
+	[Stc_LP_Test_Cycle_Time] [varchar](50) NULL,
+	[Stc_LP_Fill_Min_b] [varchar](50) NULL,
+	[Stc_LP_Fill_Act_b] [varchar](50) NULL,
+	[Stc_LP_Fill_Max_b] [varchar](50) NULL,
+	[Stc_LP_Fill_Time_s] [varchar](50) NULL,
+	[Stc_LP_Stb_Time_s] [varchar](50) NULL,
+	[Stc_LP_Test_Time_s] [varchar](50) NULL,
+	[Stc_LP_Drop_Max_b] [varchar](50) NULL,
+	[Stc_LP_Drop_Act_b] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED31] [varchar](50) NULL,
+	[RESERVED32] [varchar](50) NULL,
+	[RESERVED33] [varchar](50) NULL,
+	[RESERVED34] [varchar](50) NULL,
+	[RESERVED35] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP20_Orientation]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP20_Orientation](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[OR_Cycle_Time] [varchar](50) NULL,
+	[OR_Result] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED26] [varchar](50) NULL,
+	[RESERVED27] [varchar](50) NULL,
+	[RESERVED28] [varchar](50) NULL,
+	[RESERVED29] [varchar](50) NULL,
+	[RESERVED30] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP20_Piston_Assembly]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP20_Piston_Assembly](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[Model_No] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Piston_Test_Result] [varchar](50) NULL,
+	[Vaccum_Min_Set] [varchar](50) NULL,
+	[Vaccum_Actual] [varchar](50) NULL,
+	[Vaccum_Max_Set] [varchar](50) NULL,
+	[SC_Load_set_min_Set] [varchar](50) NULL,
+	[SC_Load_Actual] [varchar](50) NULL,
+	[SC_Load_set_max_Set] [varchar](50) NULL,
+	[SC_Postion_in_mm_min_Set] [varchar](50) NULL,
+	[SC_Position_Actual] [varchar](50) NULL,
+	[SC_Postion_in_mm_max_Set] [varchar](50) NULL,
+	[EB_Load_set_min_Set] [varchar](50) NULL,
+	[EB_Load_Actual] [varchar](50) NULL,
+	[EB_Load_set_max_Set] [varchar](50) NULL,
+	[EB_Postion_in_mm_Min_Set] [varchar](50) NULL,
+	[EB_Position_Actual] [varchar](50) NULL,
+	[EB_Postion_in_mm_Max_Set] [varchar](50) NULL,
+	[LP1_Set_Pressure] [varchar](50) NULL,
+	[LP2_Set_Pressure] [varchar](50) NULL,
+	[HP_Set_Pressure] [varchar](50) NULL,
+	[Boot_Flaring_Pressure_Min] [varchar](50) NULL,
+	[Boot_Flaring_Pressure_Actual] [varchar](50) NULL,
+	[Boot_Flaring_Pressure_Max] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED21] [varchar](50) NULL,
+	[RESERVED22] [varchar](50) NULL,
+	[RESERVED23] [varchar](50) NULL,
+	[RESERVED24] [varchar](50) NULL,
+	[RESERVED25] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP20_Unloading]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP20_Unloading](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Unloading_Result] [varchar](50) NULL,
+	[Unloading_Cycle_Time] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED41] [varchar](50) NULL,
+	[RESERVED42] [varchar](50) NULL,
+	[RESERVED43] [varchar](50) NULL,
+	[RESERVED44] [varchar](50) NULL,
+	[RESERVED45] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP30_ASR]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP30_ASR](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[ASR_Fill_Press_Min_Bar] [varchar](50) NULL,
+	[ASR_Fill_Press_Actual_Bar] [varchar](50) NULL,
+	[ASR_Fill_Press_Max_Bar] [varchar](50) NULL,
+	[ASR_Min_N] [varchar](50) NULL,
+	[ASR_Actual_N] [varchar](50) NULL,
+	[ASR_Max_N] [varchar](50) NULL,
+	[ASR_Test_Distance_Set] [varchar](50) NULL,
+	[ASR_Test_Distance_Actual] [varchar](50) NULL,
+	[ASR_Tension_Peak_load_Result_N] [varchar](50) NULL,
+	[ASR_Comp_Peak_load_Result_N] [varchar](50) NULL,
+	[ASR_Method] [varchar](50) NULL,
+	[Vacuum_Min_N] [varchar](50) NULL,
+	[Vacuum_Actual_N] [varchar](50) NULL,
+	[Vacuum_Max_N] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED66] [varchar](50) NULL,
+	[RESERVED67] [varchar](50) NULL,
+	[RESERVED68] [varchar](50) NULL,
+	[RESERVED69] [varchar](50) NULL,
+	[RESERVED70] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP30_Dcode_Marking]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP30_Dcode_Marking](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Fixture_Number] [varchar](50) NULL,
+	[Date_code_Marking_Text] [varchar](50) NULL,
+	[Date_code_Caliper_Serial_NO] [varchar](50) NULL,
+	[Date_code_Result] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED71] [varchar](50) NULL,
+	[RESERVED72] [varchar](50) NULL,
+	[RESERVED73] [varchar](50) NULL,
+	[RESERVED74] [varchar](50) NULL,
+	[RESERVED75] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP30_Loading]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP30_Loading](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Pallet_Number] [varchar](50) NULL,
+	[Flange_Thickness_Min] [varchar](50) NULL,
+	[Flange_Thickness_Actual] [varchar](50) NULL,
+	[Flange_Thickness_Max] [varchar](50) NULL,
+	[Flange_Thickness_Result] [varchar](50) NULL,
+	[AR_Clip_Assembly_Result] [varchar](50) NULL,
+	[Pin_hole_Greasing_Status] [varchar](50) NULL,
+	[Greasing_Stroke_Count_Set] [varchar](50) NULL,
+	[Greasing_Stroke_Count_Actual] [varchar](50) NULL,
+	[AR_Clip_Assembly_No_of_attempts] [varchar](50) NULL,
+	[Boot_Assembly_Result] [varchar](50) NULL,
+	[No_of_Boot_Assembly_Strokes] [varchar](50) NULL,
+	[No_of_Boot_Greasing_Strokes_Set] [varchar](50) NULL,
+	[No_of_Boot_Greasing_Strokes_Actual] [varchar](50) NULL,
+	[AR_Clip_PY_Checking_Result] [varchar](50) NULL,
+	[Sliding_Pin_dia_LH_Min] [varchar](50) NULL,
+	[Sliding_Pin_dia_LH_actual] [varchar](50) NULL,
+	[Sliding_Pin_dia_LH_Max] [varchar](50) NULL,
+	[Sliding_Pin_dia_Length_Min] [varchar](50) NULL,
+	[Sliding_Pin_length_LH_actual] [varchar](50) NULL,
+	[Sliding_Pin_length_LH_Max] [varchar](50) NULL,
+	[Sliding_Pin_Bush_dia_Min_LH] [varchar](50) NULL,
+	[Sliding_Pin_Bush_dia_actual_LH] [varchar](50) NULL,
+	[Sliding_Pin_Bush_dia_Max_LH] [varchar](50) NULL,
+	[Sliding_Pin_Bush_Diff_LH] [varchar](50) NULL,
+	[Sliding_Pin_dia_RH_Min] [varchar](50) NULL,
+	[Sliding_Pin_dia_RH_actual] [varchar](50) NULL,
+	[Sliding_Pin_dia_RH_Max] [varchar](50) NULL,
+	[Sliding_Pin_dia_Length_Min_RH] [varchar](50) NULL,
+	[Sliding_Pin_length_RH_actual] [varchar](50) NULL,
+	[Sliding_Pin_length_RH_Max] [varchar](50) NULL,
+	[Sliding_Pin_Bush_dia_Min_RH] [varchar](50) NULL,
+	[Sliding_Pin_Bush_dia_actual_RH] [varchar](50) NULL,
+	[Sliding_Pin_Bush_dia_Max_RH] [varchar](50) NULL,
+	[Sliding_Pin_Bush_Diff_RH] [varchar](50) NULL,
+	[Sliding_Pin_Vision_Status_LH] [varchar](50) NULL,
+	[Sliding_Pin_Vision_Status_RH] [varchar](50) NULL,
+	[Reserved] [varchar](50) NULL,
+	[Sliding_Pin_Greasing_Count] [varchar](50) NULL,
+	[Sliding_Pin_Greasing_Status] [varchar](50) NULL,
+	[Sliding_Pin_Assembly_Status] [varchar](50) NULL,
+	[Sliding_Pin_Assembly_stroke_Rotation] [varchar](50) NULL,
+	[Sliding_pin_Assembly_Stroke] [varchar](50) NULL,
+	[Number_of_Sliding_Pin_Assy_Stroke] [varchar](50) NULL,
+	[Model_Number] [varchar](50) NULL,
+	[Pad_Assy_PY_Status] [varchar](50) NULL,
+	[Shim_Presence_Result_Inboard] [varchar](50) NULL,
+	[Shim_Presence_Result_Outboard] [varchar](50) NULL,
+	[Inboard_1d_Code_result] [varchar](50) NULL,
+	[Outboard_1d_Code_result] [varchar](50) NULL,
+	[V_Spring_PY_Status] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED46] [varchar](50) NULL,
+	[RESERVED47] [varchar](50) NULL,
+	[RESERVED48] [varchar](50) NULL,
+	[RESERVED49] [varchar](50) NULL,
+	[RESERVED50] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP30_Probing_Test]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP30_Probing_Test](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Pad_Indicator_Result] [varchar](50) NULL,
+	[Housing_Hand_Result] [varchar](50) NULL,
+	[Piston_And_Seal_Ring_Presence_PY_status] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED51] [varchar](50) NULL,
+	[RESERVED52] [varchar](50) NULL,
+	[RESERVED53] [varchar](50) NULL,
+	[RESERVED54] [varchar](50) NULL,
+	[RESERVED55] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP30_Profile_Test]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP30_Profile_Test](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Profile_and_Disc_Checking_Status] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED61] [varchar](50) NULL,
+	[RESERVED62] [varchar](50) NULL,
+	[RESERVED63] [varchar](50) NULL,
+	[RESERVED64] [varchar](50) NULL,
+	[RESERVED65] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP30_Torquing]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP30_Torquing](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Model_PartNo_or_Hand] [varchar](50) NULL,
+	[Torque_Min_Nm] [varchar](50) NULL,
+	[TORQ_LH_ACT_Nm] [varchar](50) NULL,
+	[TORQ_RH_ACT_Nm] [varchar](50) NULL,
+	[Torque_Max_Nm] [varchar](50) NULL,
+	[Angle_Min_Deg] [varchar](50) NULL,
+	[TORQ_LH_Act_Angle_Deg] [varchar](50) NULL,
+	[TORQ_RH_Act_Angle_Deg] [varchar](50) NULL,
+	[Angle_Max_Deg] [varchar](50) NULL,
+	[TORQSTATUS] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED56] [varchar](50) NULL,
+	[RESERVED57] [varchar](50) NULL,
+	[RESERVED58] [varchar](50) NULL,
+	[RESERVED59] [varchar](50) NULL,
+	[RESERVED60] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP30_Unloading]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP30_Unloading](
+	[RFID] [varchar](50) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Unloading_Result] [varchar](50) NULL,
+	[Unloading_Cycle_Time] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED76] [varchar](50) NULL,
+	[RESERVED77] [varchar](50) NULL,
+	[RESERVED78] [varchar](50) NULL,
+	[RESERVED79] [varchar](50) NULL,
+	[RESERVED80] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP40_Label_Printing]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP40_Label_Printing](
+	[RFID] [varchar](50) NULL,
+	[Barcode] [varchar](100) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED81] [varchar](50) NULL,
+	[RESERVED82] [varchar](50) NULL,
+	[RESERVED83] [varchar](50) NULL,
+	[RESERVED84] [varchar](50) NULL,
+	[RESERVED85] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PUSH_OP50_Auto_Inspection]    Script Date: 29-09-2026 17:53:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PUSH_OP50_Auto_Inspection](
+	[RFID] [varchar](50) NULL,
+	[BARCODE] [varchar](100) NULL,
+	[Dts_Scan] [datetime] NULL,
+	[Dts_Pass] [datetime] NULL,
+	[Routing] [varchar](50) NULL,
+	[Dcode] [varchar](50) NULL,
+	[Status] [varchar](50) NULL,
+	[CellNo] [varchar](50) NULL,
+	[ProfitcenterCode] [varchar](50) NULL,
+	[MachineCode] [varchar](50) NULL,
+	[OperationCode] [varchar](50) NULL,
+	[FCS] [int] NULL,
+	[FCA] [int] NULL,
+	[Recipe_Selected] [varchar](50) NULL,
+	[CT] [float] NULL,
+	[Serial_No] [int] NULL,
+	[ModelNo] [varchar](50) NULL,
+	[WorkOrder] [varchar](50) NULL,
+	[Vision_Inspection_Test_Result] [varchar](50) NULL,
+	[Parameters_Fail_in_Inspection] [varchar](50) NULL,
+	[No_Of_Parameters_fail_in_Inspection] [varchar](50) NULL,
+	[Vision_Status_01] [varchar](50) NULL,
+	[Vision_Status_02] [varchar](50) NULL,
+	[Vision_Status_03] [varchar](50) NULL,
+	[Vision_Status_04] [varchar](50) NULL,
+	[Vision_Status_05] [varchar](50) NULL,
+	[Vision_Status_06] [varchar](50) NULL,
+	[Vision_Status_07] [varchar](50) NULL,
+	[Vision_Status_08] [varchar](50) NULL,
+	[Vision_Status_09] [varchar](50) NULL,
+	[Vision_Status_10] [varchar](50) NULL,
+	[Vision_Status_11] [varchar](50) NULL,
+	[Vision_Status_12] [varchar](50) NULL,
+	[Vision_Status_13] [varchar](50) NULL,
+	[Vision_Status_14] [varchar](50) NULL,
+	[Vision_Status_15] [varchar](50) NULL,
+	[Vision_Status_16] [varchar](50) NULL,
+	[Vision_Status_17] [varchar](50) NULL,
+	[Vision_Status_18] [varchar](50) NULL,
+	[Vision_Status_19] [varchar](50) NULL,
+	[Vision_Status_20] [varchar](50) NULL,
+	[Vision_Status_21] [varchar](50) NULL,
+	[Vision_Status_22] [varchar](50) NULL,
+	[Vision_Status_23] [varchar](50) NULL,
+	[Vision_Status_24] [varchar](50) NULL,
+	[Vision_Status_25] [varchar](50) NULL,
+	[Vision_Status_26] [varchar](50) NULL,
+	[Vision_Status_27] [varchar](50) NULL,
+	[Vision_Status_28] [varchar](50) NULL,
+	[Vision_Status_29] [varchar](50) NULL,
+	[Vision_Status_30] [varchar](50) NULL,
+	[Customer_QR_Code_Printed_Result] [varchar](50) NULL,
+	[Customer_QR_Code_Scanned_Result] [varchar](50) NULL,
+	[QR_Code_Serial_No] [varchar](50) NULL,
+	[TS_FLAG] [smallint] NULL,
+	[RESERVED86] [varchar](50) NULL,
+	[RESERVED87] [varchar](50) NULL,
+	[RESERVED88] [varchar](50) NULL,
+	[RESERVED89] [varchar](50) NULL,
+	[RESERVED90] [varchar](50) NULL,
+	[Datetime] [datetime] NULL,
+	[isUpdateCompleted] [bit] NULL,
+	[ServerSyncStatus] [bit] NULL
+) ON [PRIMARY]
+GO
