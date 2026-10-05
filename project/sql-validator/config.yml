@@ -36,7 +36,7 @@ encodings_schemes:
 excel_file_path: "output/table_schema.xlsx"
 
 #sql file path
-sql_file_path: "data/schema_3.sql"
+sql_file_path: "data/schema.sql"
 
 #template_1 path
 template_1_path: "./templates/template_1.txt"
@@ -45,4 +45,9 @@ template_2_path: "./templates/template_2.txt"
 
 # validations for correct schema - table and column names
 
-invalid_charaters: ["&", "(", ")"]
+# ["&", "(", ")"] dtype changed from list to dict, key contain replacement variable.
+invalid_charaters:
+  # ["&", "(", ")"]
+  "&": "And"
+  "(": "_"
+  ")": "_"
