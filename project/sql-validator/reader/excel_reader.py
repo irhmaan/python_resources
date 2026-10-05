@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from openpyxl import load_workbook
+from openpyxl import Workbook, load_workbook
 from common import app_config
 from common.app_config import get_master_columns,worksheet_to_remove,get_invalid_chars
 from common.logger import setup_logger
@@ -13,41 +13,55 @@ class ExcelReader:
     excel_sheet = None
     def __init__(self, file_path: str):
         self.logger = setup_logger()
+
         self.file_path = Path(file_path)
+        """The target Excel file path used for data extraction."""
+        
         #* using config file to load the master columns.
         self.master_columns = get_master_columns()
+        """The master column data configured in config.yml."""
+
         # self.user_info()
         self.tableNames = set()
+        """Set to store table name from excel file."""
+
         self.result_fw = FileWriter('output/script_result.yml')
-        self.invalid_chars = get_invalid_chars()
+        """Output result file writer(fw)."""
+
+        self.invalid_chars : dict[str,str] = get_invalid_chars()
+        """List of invalid characters to check in table names."""
 
     def user_info(self):
         print("Checkiing for:\n")
         for e_col, e_type in self.master_columns.items():
             print(f"{e_col} '->' {e_type}")
 
-    def read(self):
-        self.logger.info(f"Reading Excel file. Path: {self.file_path}\n")
+    def read(self) -> None:
+        """Read the excel file and log err if any"""
+        try:
+            self.logger.info(f"Reading Excel file. Path: {self.file_path}\n")
 
-        workbook = load_workbook(self.file_path)
-        # check the sheets names - sanity check
-        # print(workbook.sheetnames)
+            workbook = load_workbook(self.file_path)
+            # check the sheets names - sanity check
+            # print(workbook.sheetnames)
 
-        # sheet_name = "Table Name"
+            # sheet_name = "Table Name"
 
-        # if unwanted excel sheets are present, we can remove  or filter them and create an updated excel
-        sheet_to_removed = worksheet_to_remove()
-        if sheet_to_removed:
-            for sheet_name in sheet_to_removed:
-                if sheet_name in workbook.sheetnames:
-                    worksheet = workbook[sheet_name]
-                    workbook.remove(worksheet)
+            # if unwanted excel sheets are present, we can remove  or filter them and create an updated excel
+            sheet_to_removed = worksheet_to_remove()
+            if sheet_to_removed:
+                for sheet_name in sheet_to_removed:
+                    if sheet_name in workbook.sheetnames:
+                        worksheet = workbook[sheet_name]
+                        workbook.remove(worksheet)
 
-        # save workbook after removing the specified columns
-        self.excel_sheet = workbook
-        workbook.save("data/data_test.xlsx")
+            # save workbook after removing the specified columns
+            self.excel_sheet = workbook
+            workbook.save("data/data_test.xlsx")
 
-        self.validateExcel()
+            self.validate_excel()
+        except Exception as ex:
+            self.logger.warning(f"Err reading file {self.file_path}. {ex}")
 
 
     def alphanumeric_key(self, item: str) -> list:
@@ -64,45 +78,73 @@ class ExcelReader:
     
 
     def printTableNames(self):
+        #TODO: remove or comment this later.
         if self.tableNames:
             for i, v in enumerate(self.tableNames):    
                 self.logger.info(f'{i+1}   {v}') 
 
-    def createTableNameFile(self):
-        self.tableNames_list : list[str] = sorted(self.tableNames, key=self.alphanumeric_key)
-        table_name_file = FileWriter('output/tables.txt')            
-        table_name_file.clear_content()
-        for name in self.tableNames_list:
-            # print(type(name))
-
-            for char in self.invalid_chars:
-                if name.__contains__(char):
-                    # print(f"Found & in Table name : {name} - replace with 'And'")
-                    self.logger.warning(f"Found & in Table name : {name} - replace with 'And'")
-                    name = name.replace('&', 'And')
-            table_name_file.write_file(name)
-
-        self.logger.info(f'Output file: {table_name_file.file_path}', )
-
-    def validateExcel(self):
-        cleaned_workbook = self.excel_sheet
-        # store missing columns
-        missing_columns = []
-        # store mis-match data type
-        wrong_types = []
-        worksheet_schema = {}
-
-        # loop through the sheets found.
-        # print(f'\n ========= Tables ===========')
-        self.result_fw.clear_content()
-        for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
+    def create_table_name_file(self, cleaned_workbook ):
+        """Write the table names found in excel file to a text file in output directory.
+        Also removes invalid chars present in table names.
+        """
+        for sheet in cleaned_workbook.worksheets: 
             # tables.add(sheet.title)
             if(sheet.title == 'Table Name'):
                 for row in sheet.iter_rows(min_col=3,max_col=3,min_row=2,values_only=True):
                     self.tableNames.add(row[0])
 
+        self.tableNames_list : list[str] = sorted(self.tableNames, key=self.alphanumeric_key)
+        table_name_file = FileWriter('output/tables.txt')            
+        table_name_file.clear_content()
+
+        for name in self.tableNames_list:
+            #TODO: add invalid char replacement logic for other chars as well
+            for char in self.invalid_chars.keys():
+                if name.__contains__(char):
+                    # print(f"Found & in Table name : {name} - replace with 'And'")
+                    replacement_var = self.invalid_chars.get(char)
+                    self.logger.warning(f"Found {char} in Table name : {name} - replace with '{replacement_var}'")
+
+                    if replacement_var is not None:
+                        name = name.replace(char, replacement_var)
+            table_name_file.write_file(name)
+
+        self.logger.info(f'Output file: {table_name_file.file_path}', )
+
+    # def iterate_and_save_table_names(self, cleaned_workbook: Workbook):
+
+
+    def validate_excel(self):
+        """ Given an excel file, it checks the following\n:
+                1. Reads table column_name and column_dtype.
+                2. Using master_columns data, perform checking for - missing, expected columns & dtypes. Writes the result to a file in output directory.
+        """
+        cleaned_workbook  = self.excel_sheet
+        """store missing columns"""
+        missing_columns = []
+
+        """store mis-match data type """
+        wrong_types = []
+
+        worksheet_schema = {}
+
+        # loop through the sheets found.
+        # print(f'\n ========= Tables ===========')
+        #! Clear existing content of result file
+        self.result_fw.clear_content()
+
+        #! From our excel file , get and save the table names. Raise Err if workbook not loaded.
+        if cleaned_workbook is None:
+            raise ValueError("No workbook loaded")
+
+        # for sheet in cleaned_workbook.worksheets: 
+        #     # tables.add(sheet.title)
+        #     if(sheet.title == 'Table Name'):
+        #         for row in sheet.iter_rows(min_col=3,max_col=3,min_row=2,values_only=True):
+        #             self.tableNames.add(row[0])
+
         # self.printTableNames()
-        self.createTableNameFile()
+        self.create_table_name_file(cleaned_workbook=cleaned_workbook)
 
         for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
 
@@ -145,6 +187,8 @@ class ExcelReader:
                 # add missing col if not found 
                 if actual_dtype is None:
                     res = e_col
+                    #TODO: Add logic to parse invalid chars in column_names and replace with "_".
+                    #TODO: EX: Actuator_Max(Degree) => Actuator_Max_Degree
                     # Normalize keys and input to lowercase to fix the case-sensitivity issue
                     clean_input = e_col.lower().strip()
                     clean_keys = [k.lower().strip() for k in sheet_schema.keys()]
