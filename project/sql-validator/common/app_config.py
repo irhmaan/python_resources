@@ -62,7 +62,7 @@ def get_invalid_chars():
     Use this to remove unwanted worksheet if present in excel workbook.
     Specify the names in config.yml if any.
     '''
-    invalid_chars: list = app_config['invalid_charaters']
+    invalid_chars: dict[str, str] = app_config['invalid_charaters']
     if app_config and invalid_chars:
         logger.info(f'Invalid Characters. {invalid_chars}' )
     else:
