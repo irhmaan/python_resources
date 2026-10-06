@@ -1,6 +1,7 @@
 from pathlib import Path
 
-from common import (logger, file_writer, load_config)
+from common import (logger, file_writer)
+from common.app_config import AppConfig
 
 class GenerateMESModes:
     '''
@@ -8,9 +9,8 @@ class GenerateMESModes:
     '''
     def __init__(self):
         self.logger = logger.setup_logger()
-        self.app_config = load_config.app_config
-        self.template_1_path = self.app_config['template_1_path']
-        self.template_2_path = self.app_config['template_2_path']
+        self.template_1_path = AppConfig.TEMPLATE_1_PATH
+        self.template_2_path = AppConfig.TEMPLATE_2_PATH
 
         self.ofileWrite = file_writer.FileWriter('output/Auto_MesModes.sql')
         self.table_names_file_path = Path('Table_Names.txt')
@@ -71,4 +71,3 @@ class GenerateMESModes:
                 
 
                     
-

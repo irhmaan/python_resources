@@ -1,8 +1,7 @@
 import re
 from pathlib import Path
 from openpyxl import Workbook, load_workbook
-from common import app_config
-from common.app_config import get_master_columns,worksheet_to_remove,get_invalid_chars
+from common.app_config import AppConfig
 from common.logger import setup_logger
 from common.file_writer import FileWriter
 
@@ -18,17 +17,17 @@ class ExcelReader:
         """The target Excel file path used for data extraction."""
         
         #* using config file to load the master columns.
-        self.master_columns = get_master_columns()
+        self.master_columns = AppConfig.MASTER_COLUMNS
         """The master column data configured in config.yml."""
 
         # self.user_info()
         self.tableNames = set()
         """Set to store table name from excel file."""
 
-        self.result_fw = FileWriter('output/script_result.yml')
+        self.result_fw = FileWriter('output/schema_analysis.yml')
         """Output result file writer(fw)."""
 
-        self.invalid_chars : dict[str,str] = get_invalid_chars()
+        self.invalid_chars: dict[str, str] = AppConfig.INVALID_CHARACTERS
         """List of invalid characters to check in table names."""
 
     def user_info(self):
@@ -48,7 +47,7 @@ class ExcelReader:
             # sheet_name = "Table Name"
 
             # if unwanted excel sheets are present, we can remove  or filter them and create an updated excel
-            sheet_to_removed = worksheet_to_remove()
+            sheet_to_removed = AppConfig.WORKSHEET_TO_REMOVE
             if sheet_to_removed:
                 for sheet_name in sheet_to_removed:
                     if sheet_name in workbook.sheetnames:
@@ -94,7 +93,7 @@ class ExcelReader:
                     self.tableNames.add(row[0])
 
         self.tableNames_list : list[str] = sorted(self.tableNames, key=self.alphanumeric_key)
-        table_name_file = FileWriter('output/tables.txt')            
+        table_name_file = FileWriter('output/result_tables.txt')            
         table_name_file.clear_content()
 
         for name in self.tableNames_list:
@@ -102,11 +101,12 @@ class ExcelReader:
             for char in self.invalid_chars.keys():
                 if name.__contains__(char):
                     # print(f"Found & in Table name : {name} - replace with 'And'")
-                    replacement_var = self.invalid_chars.get(char)
-                    self.logger.warning(f"Found {char} in Table name : {name} - replace with '{replacement_var}'")
-
-                    if replacement_var is not None:
-                        name = name.replace(char, replacement_var)
+                    # replacement_var = self.invalid_chars.get(char)
+                    # table_name_file.write_file(f"Found {char} in Table name : {name}'")
+                    name = f"Found {char} in Table name : {name}'"
+                    self.logger.warning(f"{name}'")
+                    # if replacement_var is not None:
+                    #     name = name.replace(char, replacement_var)
             table_name_file.write_file(name)
 
         self.logger.info(f'Output file: {table_name_file.file_path}', )
@@ -144,9 +144,10 @@ class ExcelReader:
         #             self.tableNames.add(row[0])
 
         # self.printTableNames()
+        #! From excel file, write all the table names into a result_tables.txt file
         self.create_table_name_file(cleaned_workbook=cleaned_workbook)
 
-        for sheet in cleaned_workbook.worksheets: # pyright: ignore[reportOptionalMemberAccess]
+        for sheet in cleaned_workbook.worksheets: 
 
             sheet_title = sheet.title
             # Initialize schema for this sheet
@@ -216,6 +217,8 @@ class ExcelReader:
             self.result_fw.write_file(f"Worksheet: {sheet_title}")
             if missing_columns:
                 self.result_fw.write_file(f"    Missing columns:")
+                self.result_fw.write_file(f"     #Expected  Actual")
+
                 # print("Missing columns:")
                 for col in missing_columns:
                     self.result_fw.write_file(f"     - {col}")
@@ -233,8 +236,7 @@ class ExcelReader:
             if not missing_columns and not wrong_types:
                 self.result_fw.write_file("OK. Schema validation passed.")
                 
-                print("OK. Schema validation passed.")
+                self.logger.info("OK. Schema validation passed.")
 
         self.logger.info(f'Output file: {self.result_fw.file_path}', )
         # return missing_columns, wrong_types
-

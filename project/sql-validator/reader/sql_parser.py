@@ -1,10 +1,10 @@
 import os
 import pandas as pd
 from common.logger import setup_logger
-from common.app_config import get_sqlfile_path,get_encoding_schemes
 from reader.excel_reader import ExcelReader
 from pathlib import Path
 import re
+from common.app_config import AppConfig
 
 class SqlParser:
     # Read a sql file - we try with certain encoding schemes to avoid getting issue due to encoding scheme of file
@@ -12,8 +12,8 @@ class SqlParser:
     # Extract create scripts and then use these to populate an excel sheet for each table name with columns and datatype.
     def __init__(self) -> None:
         self.logger =  setup_logger(name='validator')
-        self.sql_file_path = Path(get_sqlfile_path())
-        self.encodings_to_try = get_encoding_schemes()
+        self.sql_file_path = Path(AppConfig.SQL_FILE_PATH)
+        self.encodings_to_try = AppConfig.ENCODING_SCHEMES
         self.txt_path  = Path("Table_Names.txt")
         self.sql_content: str | None=None
         # self.oResult_fw = FileWriter('output/sql_parse_result.yml')
@@ -47,7 +47,7 @@ class SqlParser:
             self.logger.warning("No encoding scheme found to read sql file")
             return
 
-        self.logger.warning(f"reading file: {self.sql_file_path}")
+        self.logger.info(f"reading file: {self.sql_file_path}")
         # Step 1: Read the first few bytes to check for a Binary BOM (Byte Order Mark)
         with open(self.sql_file_path, 'rb') as f:
             raw_bytes = f.read(4)
@@ -293,5 +293,3 @@ class SqlParser:
 
 
         
-
-

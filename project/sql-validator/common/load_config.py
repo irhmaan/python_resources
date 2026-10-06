@@ -1,11 +1,11 @@
 import yaml
-from pathlib import Path
 from common.logger import setup_logger
 import os
 import sys
+from typing import Any
 
-app_config = {}
-CONFIG = {}
+app_config: dict[str, Any] = {}
+_initialized = False
 
 logger = setup_logger()
 
@@ -29,14 +29,21 @@ def get_config_path():
 config_path = get_config_path()
 
 def init() -> None:
-    with open(config_path, "r", encoding="utf-8") as cfile:
-        CONFIG = yaml.safe_load(cfile)
-        logger.info("config file loaded.")
+    global _initialized
 
-        if CONFIG:
-            app_config.update(CONFIG)
-        else:
-            logger.error('config.yml empty, please check.')
+    if _initialized:
+        return
+
+    with open(config_path, "r", encoding="utf-8") as cfile:
+        config = yaml.safe_load(cfile)
+
+    if not isinstance(config, dict) or not config:
+        logger.error("config.yml is empty or does not contain a mapping.")
+        raise ValueError("config.yml is empty or does not contain a mapping.")
+
+    app_config.update(config)
+    _initialized = True
+    logger.info("config file loaded.")
 
 # def enable_log() -> bool:
 #     '''

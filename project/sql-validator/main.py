@@ -1,11 +1,7 @@
 from reader.excel_reader import ExcelReader
 from common.logger import setup_logger
-from common.load_config import init
-
-from common import (
-    app_config,
-    load_config
-)
+from common import load_config
+from common.app_config import AppConfig
 
 from services import (operation_mst, machine_mst, mes_mode)
 
@@ -15,8 +11,9 @@ from reader.sql_parser import SqlParser
 def main():
     #* load config    
     load_config.init()
+    AppConfig.initialize()
     # setup logger
-    logger = setup_logger(enableLog=app_config.enable_log())
+    logger = setup_logger(enableLog=AppConfig.ENABLE_LOGS)
     logger.info("Application started")
 
     
@@ -60,7 +57,7 @@ def main():
             print(f"\nProcessing your request for {msg}\n")
             match option:
                 case "1": # parse excel 
-                    reader = ExcelReader(file_path=app_config.get_Excelfile_path())
+                    reader = ExcelReader(file_path=AppConfig.EXCEL_FILE_PATH)
                     reader.read()
                 case "2": # parse sql file
                     # print("ain't gonna do itself, ")
