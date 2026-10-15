@@ -1,0 +1,276 @@
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'AutoPassFailOnMESData', N'0', NULL, NULL, N'', N'Auto Pass Fail On MES Data 1-YES 0-NO', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'AutoTallyReason', N'WIP', 0, 0, N'', N'Auto Tally Chart Reason', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'BarcodeFormat', N'Option_1', NULL, NULL, N'', N'PartNo + DateCode + 8 digit Serail + LineCode', 100, N'script', GETDATE(), N'script', GETDATE())
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'MCIG', N'', N'', N'BarcodeLbl', N'CT~~CD,~CC^~CT~
+^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+^XA
+^MMT
+^PW283
+^LL0177
+^LS0
+^BY2,3,86^FT7,122^BCN,,N,N
+^FD>:[SERIAL_PREFIX1]>5[SERIAL_PREFIX2][seqence_number][TMP_DATE_CODE1]>6[TMP_DATE_CODE2]^FS
+^FT95,156^A0N,33,33^', NULL, NULL, N'', N'', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP])
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'MCIG', N'OCIG', N'', N'BarcodePrefix1', N'L', NULL, NULL, N'', N'', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP])
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'MCIG', N'OCIG', N'', N'BarcodePrefix2', N'1', NULL, NULL, N'', N'', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'BYPASSPREVIOUSSTATIONCHECKFLAG', N'1', NULL, NULL, N'', N'Bypass Previous station check Flag 1-YES 0-NO', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'ContinuesFailCountReq', N'0', 0, 0, N'', N'Check For Continues Fail Count 1-Yes 0 -No', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'EnableDisablePokaYokeInTD_DB', N'1', 0, 0, N'', N'Enable Disable Poka Yoke In TD Database', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'EnableDisablePokaYokeStatusMailFromCentral', N'1', 0, 0, N'', N'Enable Disable PokaYoke Status On Central Only 1-YES 0-NO', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'EngravingStationMachineCode', N'MCFV', NULL, NULL, N'', N'', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'FVScanningType', N'IP', 0, 0, N'', N'FV Scanner Type', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'FVSocketIp', N'10.10.106.118', 0, 0, N'', N'FV Scanner IP Address', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'FVSocketPort', N'33000', 0, 0, N'', N'FV Scanner Port Address', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'FVSocketReqArray', N'CU_00_00_00_00_00_AS\r\n$CI_01_11_0000_004_028_01_01_00\r\n$XD_01_00000_0008\r\n', 0, 0, N'', N'Request or Commands', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'GetGenIdFromTable', N'op10_01_sealcheck', NULL, NULL, N'', N'Get Generated Id From Server', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'HourlyFailCountReq', N'0', 0, 0, N'', N'Check For Hourly Fail Count 1-Yes 0 -No', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'1', N'', N'@Target_Part_Number@', N'IsBarcodeCapturingFromMES', N'1', NULL, NULL, N'', N'', 0, N'script',GETDATE(), N'script',GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'MCFV', N'OCFV', N'', N'isCustomerLabelReq', N'0', NULL, NULL, N'', N'', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsGetParameterDataFromMES', N'1', NULL, NULL, N'', N'Take Data For MES Is Required 1-YES 0-NO', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'@Target_Part_Number@', N'IsImportBarcodeMode', N'0', 0, 0, N'', N'Imported Barcode Setting', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'isLotNumberReq', N'1', NULL, NULL, N'', N'1 - Yes else No', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsPushMasterDataIntoMESServerOnSetParameter', N'1', 0, 0, N'', N'Provide Master Data To MES Server 1-YES 0-NO', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsPushSetParameterDataIntoMEServer', N'1', NULL, NULL, N'', N'Provide Set Parameter Data To MES Server 1-YES 0-NO', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsQAInspectionRequired', N'0', NULL, NULL, N'', N'Check QA Inspection Done for Previous Part or Not', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsQCPopUpRequired', N'1', NULL, NULL, N'', N'Show QC Pop Up 1 - Yes 0 No', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsSendLiveDateCodeToTD', N'1', 0, 0, N'', N'Update Current Date Code In TD Table {TD_SYSTEM_INFO}', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsShowImportLabelCheckBox', N'1', 0, 0, N'', N'Show Import Label Check Box on Set parameter Screen', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'isShowMESParameterReq', N'1', 0, 0, N'', N'Show MES Data At FV', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'isShowParameterReq', N'0', NULL, NULL, N'', N'1 - Yes else No', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'isValidateLineCode', N'1', NULL, NULL, N'', N'', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsWIPCountManage', N'1', 0, 0, N'', N'1 -WIP Part Count is checked in printing,0-If WIP part count is not checked in printing', 0, N'script',GETDATE(), N'script',GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'IsWIPPartManage', N'0', 0, 0, N'', N'1 -After WIP Part change is not allowed,0-After WIP Part change is allowed', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'LabelPrintingUsing', N'PrintUsingPrinter', 0, 0, N'', N'User Can Take Print Using Printer', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'LinkServerType', N'MSSQL', 0, 0, N'', N'Link Server Type', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBLinkServerDB', N'@Target_Db@', 0, 0, N'', N'Link Server Database E.g: CELL18.dbo.TABLE_NAME', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBLinkServerName', N'[TD_LINK_SERVER]', 0, 0, N'', N'Link Server Name', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBPokaYokeMasterTableName', N'ASSY_POKAYOKE', 0, 0, N'', N'MES Server Poka Yoke Table', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBResultTableName', N'op100_10_globaldata', 0, 0, N'', N'Link Server Database', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBRoutingLineWiseTableName', N'ROUTINGCONFIGLINEWISE', 0, 0, N'', N'MES Server Routing Line Table', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBRoutingPartWiseTableName', N'ROUTINGCONFIGPARTWISE', 0, 0, N'', N'MES Server Routing Part Table', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBSetParameterTableName', N'OC003_TS_SYSTEM_INFO', 0, 0, N'', N'Link Server Database', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBTableName', N'op100_10_globaldata', 0, 0, N'', N'Link Server Database', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MachineDBWhereClauseColumn', N'rfid', 0, 0, N'', N'Link Server Database', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MaxContinuesFailCount', N'2', 0, 0, N'', N'Maximum Value of Continues fail Count', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MaxHourlyFailCount', N'2', 0, 0, N'', N'Maximum Value of Hourly fail Count', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'MaxReworkCount', N'2', NULL, NULL, N'', N'Maximum Number of Rework Required', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'PKYKIsLineRequired', N'1', 0, 0, N'', N'Line will be print on Lable or not 1-yes 0- No', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'PKYKIsPartRequired', N'0', 0, 0, N'', N'Part will be print on Lable or not 1-yes 0- No', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'PKYKPrintOption', N'Option_2', 0, 0, N'', N'PKYK + 4 digit Serail', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'PKYKPrintZPL', N'
+ CT~~CD,~CC^~CT~
+^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+^XA
+^MMT
+^PW295
+^LL0177
+^LS0
+^BY2,3,81^FT33,117^BCN,,N,N
+^FD>:@PKYKDATECODE>5@SERIAL^FS
+^FT73,151^A0N,33,33^FH\^FD@PRINTCONTENT^FS
+^PQ1,0,1,Y^XZ
+', 0, 0, N'', N'PKYK + 4 digit Serail (Format ZPL)', 0, N'script', GETDATE(), N'script', GETDATE())
+GO
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'PKYKSerialLen', N'5', 0, 0, N'', N'Define Length of Poke Yoke Serial Sequence', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'PrintUsingPrinter', N'OC5A', 0, 0, N'', N'User Can Take Print Using Printer', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'SaveDataForMachineCode', N'MCES', 0, 0, N'', N'Link Server Database', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'SaveDataForOperationCode', N'OCES', 0, 0, N'', N'Link Server Database', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'SetParameterMESTableUpdateOnTallyChart', N'1', 0, 0, N'', N'Update MES Set Parameter Table on Tally Chart 1-YES 0-NO', 0, N'script', GETDATE(), N'script', GETDATE())
+
+GO
+
+INSERT [dbo].[RoutingConfigDetails] ([ProfitCenterCode], [LineCode], [MachineCode], [OperationCode], [PartNumber], [KeyType], [KeyValue], [SeqNumber], [isSeqReq], [chkFromTable], [Remarks], [STS_CD], [ENT_BY], [ENT_STAMP], [LAST_UPD_BY], [LAST_UPD_STAMP]) 
+VALUES (N'@Target_ProfitCenter@', N'@Target_LineCode@', N'', N'', N'', N'TallyChartWithPartFamily', N'0', NULL, NULL, N'', N'TallyChartWithPartFamily', 0, N'script', GETDATE(), N'script', GETDATE())
+GO

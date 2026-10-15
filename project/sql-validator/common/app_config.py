@@ -14,6 +14,8 @@ class AppConfig:
     ENCODING_SCHEMES: list[str]
     TEMPLATE_1_PATH: str
     TEMPLATE_2_PATH: str
+    LINE_DATA: dict[str, str] 
+    ROUTING_CONFIG_TEMPLATE: str
     _initialized = False
 
     @classmethod
@@ -32,6 +34,8 @@ class AppConfig:
         cls.ENCODING_SCHEMES = app_config["encodings_schemes"]
         cls.TEMPLATE_1_PATH = app_config["template_1_path"]
         cls.TEMPLATE_2_PATH = app_config["template_2_path"]
+        cls.LINE_DATA = app_config["line_data"]
+        cls.ROUTING_CONFIG_TEMPLATE = app_config["rcd_path"]
         cls._initialized = True
 
     @classmethod
@@ -110,3 +114,21 @@ class AppConfig:
     def get_template_2_path(cls) -> str:
         cls.initialize()
         return cls.TEMPLATE_2_PATH
+
+    @classmethod
+    def get_line_data(cls)->dict[str, str]:
+        cls.initialize()
+        if cls.LINE_DATA:
+            logger.info(f"LINE_DATA: {cls.LINE_DATA}")
+        else:
+            logger.info("No LINE_DATA found. Specify  in config.yml.")
+        return cls.LINE_DATA
+
+    @classmethod
+    def get_rcd_path(cls)-> str:
+        cls.initialize()
+        if cls.ROUTING_CONFIG_TEMPLATE:
+            logger.info(f"ROUTING_CONFIG_TEMPLATE path found : {cls.ROUTING_CONFIG_TEMPLATE}")
+        else:
+            logger.info("No ROUTING_CONFIG_TEMPLATE path found. Specify  in config.yml.")
+        return cls.ROUTING_CONFIG_TEMPLATE

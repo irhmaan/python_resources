@@ -34,12 +34,16 @@ sql-validator/
 For the validator to work and check a given file. Certain structure is required, which is mentioned below:
 
 1. ## Excel File (.xlsx):
+
    Multiple excel sheet can be processed , but each sheet should have the following structure.
    | Column Name | Data Type |
    | ----------- | ----------- |
    | RFID | VARCHAR(50) |
    | LineCode | VARCHAR(50) |
    | DTS_SCAN | Datetime |
+
+2. ## SQL File (.sql):
+   Can perform selective file reading using specifed tables names. This is done so as to narrow down the search rather than complete file searching.
 
 # Executable File Structure:
 
@@ -63,13 +67,23 @@ validator/
 # Screenshots
 
 Demo screenshot of the application:
-#### [Main menu]
-<img width="1096" height="579" alt="image" src="https://github.com/user-attachments/assets/46cba77b-d347-4539-be2c-24113ea3e7e0" />\
-#### [Validator output ]
-<img width="530" height="441" alt="image" src="https://github.com/user-attachments/assets/8a1a0c70-d1b0-4755-ac5d-80cbddddd111" />
 
+#### [Main menu]
+
+<img width="1096" height="579" alt="image" src="https://github.com/user-attachments/assets/46cba77b-d347-4539-be2c-24113ea3e7e0" />\
+
+#### [Validator output ]
+
+<img width="530" height="441" alt="image" src="https://github.com/user-attachments/assets/8a1a0c70-d1b0-4755-ac5d-80cbddddd111" />
 
 #### note: As you can see, it also reports:
 
 1. the expected column and actual column found [likely-ness]
 2. type mis-match of expected column and actual reported column .
+
+# Automated script generations tables:
+
+1. Machine Mst
+2. Operation Mst
+3. MES Mode for Assy SP
+4. Routing Config Details

@@ -5,6 +5,12 @@ enable_log: True
 # name should be a list.
 worksheet_to_remove:
 
+# define new line code and profitcenter code
+# should be key value object
+line_data:
+  line_code: "C22"
+  profitCenterCode: "0066"
+
 # master column to check
 # can we have aliasing ?
 master_columns:
@@ -42,6 +48,9 @@ sql_file_path: "data/schema.sql"
 template_1_path: "./templates/template_1.txt"
 #template_2 path
 template_2_path: "./templates/template_2.txt"
+
+#routing config detail template path
+rcd_path: "./templates/RoutingConfig_template.txt"
 
 # validations for correct schema - table and column names
 

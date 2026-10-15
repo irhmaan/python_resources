@@ -7,6 +7,8 @@ from services import (operation_mst, machine_mst, mes_mode)
 
 from reader.sql_parser import SqlParser
 
+from services.routing_config_details import GenerateRoutingConfigDetailsMst 
+
 
 def main():
     #* load config    
@@ -35,7 +37,9 @@ def main():
                         "2": "Sql File (.sql)", 
                         '3': 'Generate Operation Master',
                         '4': 'Generate Machine Master',
-                        '5': 'Generate MES mode'                        
+                        '5': 'Generate MES mode',
+                        '6': 'Generate RoutingConfigDetails Insert'                        
+
                         }
             for i , value in enumerate(menuOptions.values()):         
                 print(f"{i+1}. {value}\n")
@@ -72,6 +76,9 @@ def main():
                 case '5':
                     mes = mes_mode.GenerateMESModes()
                     mes.__init__
+                case '6':
+                    rcd = GenerateRoutingConfigDetailsMst()
+                    # rcd.__init__
 
 
         
